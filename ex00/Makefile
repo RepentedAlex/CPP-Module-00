@@ -29,7 +29,7 @@ $(OBJF):
 
 clean:
 	@echo "Removing build files..."
-	@rm -rf $(BUI_DIR)
+	@rm -rf $(BUI_DIR) $(OBJF)
 
 fclean: clean
 	@echo "Removing $(NAME)..."

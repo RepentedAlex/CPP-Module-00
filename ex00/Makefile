@@ -1,5 +1,7 @@
 NAME	=	megaphone
-CC		=	clang++
+CC		=	g++
+WFLAGS	=	-Wall -Wextra -Werror -Wpedantic
+CC		+=	$(WFLAGS)
 
 BUI_DIR	=	build/
 
@@ -10,24 +12,27 @@ OBJ		=	$(addprefix $(BUI_DIR), $(addsuffix .o, $(SRC_FIL)))
 
 OBJF	=	.cache_exists
 
+all: $(NAME)
+
 $(NAME): $(OBJ)
-	$(CC) $(SRC) -o $(NAME)
+	@echo "Linking $<..."
+	$(CC) $(OBJ) -o $(NAME)
 
 $(BUI_DIR)%.o: $(SRC_DIR)%.cpp | $(OBJF)
 
 	@mkdir -p $(dir $@)
-	@echo "$(PENDING)Compiling $<..."
-	@$(CC) $(FLAGS)  -c $< -o $@
+	@echo "Compiling $<..."
+	@$(CC) $(FLAGS) -c $< -o $@
 
 $(OBJF):
-	touch $(OBJF)
-
-all: $(NAME)
+	@touch $(OBJF)
 
 clean:
-	rm -rf $(BUI_DIR)
+	@echo "Removing build files..."
+	@rm -rf $(BUI_DIR)
 
 fclean: clean
-	rm $(NAME)
+	@echo "Removing $(NAME)..."
+	@rm $(NAME)
 
 re: fclean all

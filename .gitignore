@@ -35,6 +35,8 @@
 *.i*86
 *.x86_64
 *.hex
+ex00/megaphone
+ex01/phonebook
 
 # Debug files
 *.dSYM/
@@ -51,6 +53,5 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-# Executables
-ex00/megaphone
-ex01/phonebook
+# CLion files
+.idea/

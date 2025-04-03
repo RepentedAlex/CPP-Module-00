@@ -1,20 +1,6 @@
+#include <iterator>
+#include <string>
 #include <iostream>
-
-using namespace std;
-
-/// String to uppercase
-/// @param str The string to put in upper case.
-void	string_to_uppercase(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		str[i] = std::toupper(str[i]);
-		i++;
-	}
-}
 
 /// Main function
 /// @param argc The number of arguments passed to the program.
@@ -22,22 +8,15 @@ void	string_to_uppercase(char *str)
 /// @return 0 on success
 int main(int argc, char *argv[])
 {
-	int		i;
-
 	if (argc == 1)
-	{
-		cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << endl;
-	}
-	else if (argc >= 2)
-	{
-		i = 1;
-		while (i < argc)
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+	else
+		for (int i = 1; i < argc; i++)
 		{
-			string_to_uppercase(argv[i]);
-			cout << argv[i];
-			i++;
+			std::string input = std::string(argv[i]);
+			for (size_t j = 0; j < input.length(); j++)
+				std::cout << static_cast<char>(std::toupper(input[j]));
 		}
-		cout << endl;
-	}
+	std::cout << std::endl;
 	return (0);
 }

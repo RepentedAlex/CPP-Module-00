@@ -1,6 +1,6 @@
 NAME	=	megaphone
-CC		=	g++
-WFLAGS	=	-Wall -Wextra -Werror -Wpedantic
+CC		=	c++
+WFLAGS	=	-Wall -Wextra -Werror -Wpedantic -std=c++98
 CC		+=	$(WFLAGS)
 
 BUI_DIR	=	build/
